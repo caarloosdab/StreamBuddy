@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Spinner | StreamBuddy</title>
+  <link rel="icon" href="assets/images/StremBuddy.ico" type="image/png" />
+  <link rel="stylesheet" href="assets/styles/main.css" />
+  <script type="module" src="components/spinner.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+      <div class="logo">
+        <a href="/"><img id="logo" src="assets/images/StremBuddyLogo.png" alt="StreamBuddy Logo"> StreamBuddy</a>
+      </div>
+
+      <button class="hamburger" id="hamburger">&#9776;</button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="spinner.html">Wheel</a>
+        <a href="/index.html">Home</a>
+        <a href="/src/watchlist.html">Watchlist</a>
+        <!-- Optional filter page -->
+        <!-- <a href="/src/genres.html">Genres</a> -->
+      </nav>
+    </header>
+
+ <main class="spinner-page" id="spinner-form">
+    <h1>🎡 Movie Spinner</h1>
+    <p>Pick your favorite filters and let the wheel decide your next movie!</p>
+
+    <form class="filters">
+      <div>
+        <label for="genre-select">Genre</label>
+        <select id="genre-select">
+          <option value="">Any</option>
+          <option value="28">Action</option>
+          <option value="35">Comedy</option>
+          <option value="18">Drama</option>
+          <option value="10749">Romance</option>
+          <option value="27">Horror</option>
+          <option value="12">Adventure</option>
+          <option value="16">Animation</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="year-select">Release Year</label>
+        <select id="year-select">
+          <option value="">Any</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="rating-select">Minimum Rating</label>
+        <select id="rating-select">
+          <option value="">Any</option>
+          <option value="8">8+</option>
+          <option value="7">7+</option>
+          <option value="6">6+</option>
+          <option value="5">5+</option>
+        </select>
+      </div>
+
+      <button id="spin-button" type="submit">🎬 Spin the Wheel!</button>
+    </form>
+
+    <div class="spinner" id="spinner"></div>
+
+    <div id="result"></div>
+    <div id="movie-details"></div>
+
+    <section id="tastedive-recommendations">
+      <h3>Similar Recommendations</h3>
+      <ul id="recommendations-list"></ul>
+    </section>
+  </main>
+
+
+  <footer><p>&copy; 2025 StreamBuddy</p></footer>
+</body>
+</html>

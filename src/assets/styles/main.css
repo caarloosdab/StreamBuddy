@@ -1,6 +1,14 @@
 @import "bulma/css/bulma.css";
 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+.trending-section{
+    margin: 10%;
+}
 #logo{
     max-width: 10%;
     margin-right: 10px;
@@ -189,6 +197,20 @@ header, footer {
   background-color: #222;
 }
 
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+#toggle-filters {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 .genre-filters button {
   background-color: #444;
   color: #fff;
@@ -197,6 +219,7 @@ header, footer {
   padding: 0.4rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  
 }
 
 .genre-filters button:hover,
@@ -224,4 +247,168 @@ header, footer {
 
 #toggle-filters:hover {
   background-color: #666;
+}
+
+.recommendations-section {
+  padding: 2rem;
+  background-color: #111;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 1rem;
+  animation: slideLeft 40s linear infinite;
+}
+
+.recommendation-card {
+  min-width: 200px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #222;
+}
+
+.recommendation-card img {
+  width: 100%;
+  opacity: 0.5;
+}
+
+.recommendation-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  color: white;
+  font-size: 0.9rem;
+}
+
+@keyframes slideLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container layout */
+.spinner-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Filter section */
+.spinner-page .filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.spinner-page label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.spinner-page select,
+.spinner-page button {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+/* Spin button */
+#spin-button {
+  grid-column: span 2;
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#spin-button:hover {
+  background-color: #e53935;
+}
+
+/* Spinner */
+.spinner {
+  margin: 2rem auto;
+  width: 150px;
+  height: 150px;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #ff5252;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Result section */
+#result {
+  margin-top: 2rem;
+}
+
+#result img {
+  max-width: 200px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  filter: brightness(0.8);
+}
+
+#result h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#result p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* TasteDive recommendations */
+#tastedive-recommendations {
+  margin-top: 2rem;
+}
+
+#tastedive-recommendations h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#tastedive-recommendations ul {
+  list-style: none;
+  padding: 0;
+}
+
+#tastedive-recommendations li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0.4rem;
 }
