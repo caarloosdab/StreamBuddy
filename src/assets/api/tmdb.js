@@ -9,4 +9,16 @@ export async function fetchTrending() {
 
 }
 
+export async function searchTMDb(query) {
+  const url = `${BASE_URL}/search/multi?query=${encodeURIComponent(query)}&api_key=${API_KEY}`;
+  const response = await fetch(url);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.status_message || "Failed to fetch results");
+  }
+
+  return data.results;
+}
+
 

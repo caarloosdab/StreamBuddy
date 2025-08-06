@@ -1,5 +1,66 @@
 @import "bulma/css/bulma.css";
 
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #111;
+  color: #fff;
+}
+
+.navbar .logo a {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* --- Hamburger Button --- */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* --- Mobile Menu --- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    background-color: #111;
+    padding: 1rem;
+    border-radius: 5px;
+    z-index: 10;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -55,4 +116,61 @@ header, footer {
 .error {
   color: red;
   text-align: center;
+}
+
+.watchlist-button, .watchlist-link {
+  display: inline-block;
+  background-color: #e50914;
+  color: white;
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.watchlist-button:hover,
+.watchlist-link:hover {
+  background-color: #b00610;
+}
+
+
+
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.search-bar input {
+  padding: 0.5rem;
+  width: 60%;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+
+.details {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.details img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.details div {
+  max-width: 600px;
 }

@@ -1,11 +1,9 @@
 const STORAGE_KEY = "streambuddy-watchlist";
 
-// Get all saved items
 export function getWatchlist() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 }
 
-// Save all items
 export function setWatchlist(list) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
 }
@@ -17,6 +15,9 @@ export function addToWatchlist(item) {
   if (!exists) {
     list.push(item);
     setWatchlist(list);
+    console.log(`✅ Added to watchlist:`, item);
+  } else {
+    console.log("ℹ️ Already in watchlist.");
   }
 }
 
