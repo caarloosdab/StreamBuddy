@@ -1,6 +1,12 @@
 @import "bulma/css/bulma.css";
 
 
+#logo{
+    max-width: 10%;
+    margin-right: 10px;
+    align-self: flex-start;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -173,4 +179,49 @@ header, footer {
 
 .details div {
   max-width: 600px;
+}
+
+.genre-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #222;
+}
+
+.genre-filters button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.genre-filters button:hover,
+.genre-filters button.active {
+  background-color: #f39c12;
+  color: #000;
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+#toggle-filters {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+#toggle-filters:hover {
+  background-color: #666;
 }

@@ -4,15 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Movie or TV Show Details" />
+    <link rel="icon" href="src/assets/images/StremBuddy.ico" type="image/png" />
     <title>Details | StreamBuddy</title>
     <link rel="stylesheet" href="assets/styles/main.css" />
     <script type="module" src="details.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1>🎬 StreamBuddy</h1>
-      <nav>
-        <a href="/">← Back to Home</a>
+    <header class="navbar">
+      <div class="logo">
+        <a href="/"><img id="logo" src="assets/images/StremBuddyLogo.png" alt="StreamBuddy Logo"> StreamBuddy</a>
+      </div>
+
+      <button class="hamburger" id="hamburger">&#9776;</button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Home</a>
+        <a href="/src/watchlist.html">Watchlist</a>
+        <!-- Optional filter page -->
+        <!-- <a href="/src/genres.html">Genres</a> -->
       </nav>
     </header>
 

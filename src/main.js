@@ -1,5 +1,7 @@
 import { fetchTrending, searchTMDb } from "./assets/api/tmdb.js";
 import CardList from "./components/CardList.js";
+import { fetchGenres, renderGenreFilters } from "./components/filters.js";
+const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.querySelector(".card-container");
@@ -48,4 +50,60 @@ document.addEventListener("DOMContentLoaded", () => {
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("active");
   });
+});
+
+
+
+const genreFiltersContainer = document.getElementById("genre-filters");
+const cardContainer = document.querySelector(".card-container");
+
+let selectedGenres = [];
+
+function onGenreClick(genreId) {
+  const index = selectedGenres.indexOf(genreId);
+  if (index > -1) {
+    selectedGenres.splice(index, 1);
+  } else {
+    selectedGenres.push(genreId);
+  }
+  loadFilteredMovies();
+}
+
+async function loadFilteredMovies() {
+  try {
+    const genreQuery = selectedGenres.join(",");
+    let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
+    if (genreQuery.length > 0) {
+      url += `&with_genres=${genreQuery}`;
+    }
+    const response = await fetch(url);
+    const data = await response.json();
+    cardList.render(data.results);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Initialize filters and load trending on page load
+(async function init() {
+  const genres = await fetchGenres();
+  renderGenreFilters(genres, genreFiltersContainer, onGenreClick);
+
+  // Load initial trending or popular movies
+  const trendingUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
+  const trendingRes = await fetch(trendingUrl);
+  const trendingData = await trendingRes.json();
+  cardList.render(trendingData.results);
+})();
+
+
+const toggleBtn = document.getElementById("toggle-filters");
+const genreFilters = document.getElementById("genre-filters");
+
+toggleBtn.addEventListener("click", () => {
+  genreFilters.classList.toggle("hidden");
+
+  toggleBtn.textContent = genreFilters.classList.contains("hidden")
+    ? "🎛️ Show Filters"
+    : "🙈 Hide Filters";
 });
