@@ -13,7 +13,7 @@ export default class CardList {
       card.classList.add("card");
 
       card.innerHTML = `
-        <a href="src/details.html?id=${item.id}">
+        <a href="details.html?id=${item.id}">
           <img src="https://image.tmdb.org/t/p/w300${item.poster_path}" alt="${item.title || item.name}" />
           <h3>${item.title || item.name}</h3>
         </a>
