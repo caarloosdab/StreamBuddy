@@ -1,5 +1,4 @@
 import { getWatchlist, removeFromWatchlist } from "./components/utils/watchlist.js";
-import CardList from "./components/CardList.js";
 
 const container = document.querySelector(".card-container");
 
@@ -33,16 +32,3 @@ function renderWatchlist() {
 }
 
 document.addEventListener("DOMContentLoaded", renderWatchlist);
-
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".product-list"); 
-  const cardList = new CardList(container);
-
-  const watchlist = getWatchlist();
-
-  if (watchlist.length === 0) {
-    container.innerHTML = "<p>Your watchlist is empty.</p>";
-  } else {
-    cardList.render(watchlist);
-  }
-});
