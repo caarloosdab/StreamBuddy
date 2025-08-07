@@ -2,17 +2,6 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  
-   server: {
-    proxy: {
-      '/api/taste': {
-        target: 'https://tastedive.com',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/taste/, '/api/similar'),
-      },
-    },
-  },
-
   base: '/',
   build: {
     rollupOptions: {

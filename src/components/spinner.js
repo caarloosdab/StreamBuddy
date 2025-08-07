@@ -71,19 +71,13 @@ function displayMovie(movie) {
 }
 
 async function fetchTasteDiveRecommendations(query) {
-  const url = `/api/taste?q=${encodeURIComponent(query)}&type=movie&limit=5&info=1`;
+  const tasteDiveApi = "https://tastedive.com/api/similar";
+  const tasteKey = import.meta.env.VITE_TASTEDIVE_API_KEY;
 
   try {
+    const url = `${tasteDiveApi}?q=${encodeURIComponent(query)}&type=movie&limit=5&info=1&k=${tasteKey}`;
     const res = await fetch(url);
-    if (!res.ok) throw new Error("Bad response from API");
-
     const data = await res.json();
-
-    const tastediveList = document.querySelector("#tastedive-list");
-    if (!tastediveList) {
-      console.warn("tastedive-list element not found");
-      return;
-    }
 
     tastediveList.innerHTML = data.Similar.Results.map(item => `
       <li>
@@ -91,10 +85,7 @@ async function fetchTasteDiveRecommendations(query) {
       </li>
     `).join("");
   } catch (err) {
-    const tastediveList = document.querySelector("#tastedive-list");
-    if (tastediveList) {
-      tastediveList.innerHTML = "<li>Unable to load recommendations.</li>";
-    }
-    console.error("TasteDive Error:", err);
+    tastediveList.innerHTML = "<li>Unable to load recommendations.</li>";
+    console.error(err);
   }
 }
